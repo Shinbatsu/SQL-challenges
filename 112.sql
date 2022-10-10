@@ -1,0 +1,1 @@
+﻿WITH _ AS(SELECT ((count(DISTINCT V_ID) * 255 - sum(B_VOL))/ 255) AS fv FROM utv LEFT JOIN utB ON utB. B_V_ID = utV. V_ID GROUP BY V_COLOR) SELECT min(fv) AS qty FROM _;

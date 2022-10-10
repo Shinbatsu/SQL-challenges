@@ -1,0 +1,1 @@
+﻿SELECT(SELECT top 1 mo. Q_ID + 1 id FROM utQ mo WHERE NOT EXISTS (SELECT NULL FROM utQ mi WHERE mi. Q_ID = mo. Q_ID + 1) AND mo. Q_ID < (SELECT max(Q_ID) FROM utQ) ORDER BY mo. Q_ID) minq, (SELECT top 1 mo. Q_ID - 1 id FROM utQ mo WHERE NOT EXISTS (SELECT NULL FROM utQ mi WHERE mi. Q_ID = mo. Q_ID - 1) AND mo. Q_ID > (SELECT min(Q_ID) FROM utQ) ORDER BY mo. Q_ID DESC) maxq

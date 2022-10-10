@@ -1,0 +1,1 @@
+﻿WITH _ AS(SELECT convert(varchar(10), B_DATETIME, 127) fg, B_DATETIME, B_VOL FROM utB UNION SELECT convert(varchar(7), B_DATETIME, 127) fg, B_DATETIME, B_VOL FROM utB UNION SELECT convert(varchar(4), B_DATETIME, 127) fg, B_DATETIME, B_VOL FROM utB) SELECT fg, sum(b_vol) FROM _ GROUP BY fg HAVING count(DISTINCT B_DATETIME) > 10

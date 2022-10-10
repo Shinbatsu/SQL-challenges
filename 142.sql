@@ -1,0 +1,1 @@
+WITH dsPsg AS(SELECT p.ID_psg FROM Pass_in_trip p INNER JOIN Trip t ON t.trip_no = p.trip_no GROUP BY p.ID_psg HAVING MAX(t.plane) = MIN(t.plane) AND COUNT(town_to) > COUNT(DISTINCT town_to)) SELECT p.name FROM Passenger p WHERE p.ID_psg IN (SELECT dsPsg.ID_psg FROM dsPsg)

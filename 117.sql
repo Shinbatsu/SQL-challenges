@@ -1,0 +1,1 @@
+﻿WITH cta AS(SELECT upv.country, c, v, max(v) over(PARTITION BY country) m FROM (SELECT CLASS, TYPE, country, cast(numGuns * 5000 AS int) numguns, cast(bore * 3000 AS int) bore, displacement FROM classes) tr unpivot(v FOR c in (numGuns, bore, displacement)) upv) SELECT DISTINCT country, cast(v AS decimal(18, 1)) AS max_val, c AS name FROM cta WHERE v = m;

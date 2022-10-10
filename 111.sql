@@ -1,0 +1,1 @@
+﻿SELECT pvt.Q_NAME, R AS qty FROM(SELECT Q_ID, Q_NAME, B_VOL, V_COLOR FROM utQ JOIN utB ON utB.B_Q_ID = utQ.Q_ID JOIN utV ON utV.V_ID = utB.B_V_ID) t1 pivot(sum(B_VOL) FOR V_COLOR in (R, G, B)) pvt WHERE R = G AND R = B AND R > 0 AND R < 255

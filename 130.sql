@@ -1,0 +1,1 @@
+﻿WITH _ AS(SELECT row_number() over( ORDER BY date, name) rn, count(*) over() cnt, date, name FROM Battles) SELECT a.R, a.name, a.date, b.R, b.name, b.date FROM _ a LEFT JOIN _ b ON a.R = b.rn - (b.cnt / 2 + b.cnt % 2) WHERE a.R <= a.cnt / 2 + a.cnt % 2

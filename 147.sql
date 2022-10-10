@@ -1,0 +1,1 @@
+SELECT count(*) OVER( ORDER BY a.countM DESC, a.maker, a.model) cnt, a.maker, a.model FROM (SELECT count(*) OVER (PARTITION BY maker) countM, maker, model FROM product) AS a

@@ -1,0 +1,1 @@
+﻿WITH _ AS(SELECT DISTINCT cast(b_vol AS int) bvol FROM utB) SELECT b1.bvol b, b2.BVOL c, (b1.bvol + b2.BVOL) / 2 a, cast(sqrt(b1.BVOL * b2.BvOL)/ 2 AS decimal(14, 2)) r FROM _ b1 JOIN _ b2 ON b1.BVOL < b2.BVOL WHERE (b1.bvol + b2.bvol) % 2 = 0 AND ((b1.BVOL + b2.BVOL) / 2) in (SELECT bvol FROM _);

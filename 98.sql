@@ -1,0 +1,1 @@
+﻿-- : TODO Something with CHARINDEX

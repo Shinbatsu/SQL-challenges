@@ -1,0 +1,1 @@
+﻿SELECT cmp. ID_comp top_id, coalesce((SELECT '' + cast(ID_comp AS varchar(MAX)) FROM Company a WHERE a. ID_comp < cmp. ID_comp ORDER BY a. ID_comp FOR XML path('')), '') + cast(cmp. ID_comp AS varchar(MAX)) + coalesce( (SELECT '' + cast(ID_comp AS varchar(MAX)) FROM Company a WHERE a. ID_comp < cmp. ID_comp ORDER BY a. ID_comp DESC FOR XML path('')), '') hill FROM Company CMP

@@ -1,0 +1,1 @@
+﻿SELECT * FROM(SELECT V_COLOR, (SELECT count(*) FROM utQ) * 255 - sum(B_VOL) AS v FROM utB JOIN utV ON utV. V_ID = utB. B_V_ID GROUP BY V_COLOR) tr pivot(sum(v) FOR V_COLOR in (R, G, B)) pvt

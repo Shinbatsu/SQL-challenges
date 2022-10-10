@@ -1,0 +1,1 @@
+﻿WITH cta AS(SELECT DISTINCT b_vol FROM utb), _ AS (SELECT DISTINCT cast(a. B_VOL AS int) a, cast(b. B_VOL AS int) b, cast(c. B_VOL AS int) c FROM cta a, cta b, cta c WHERE a. B_VOL < b. B_VOL AND b. B_VOL < c. B_VOL) SELECT * FROM _ WHERE a < (b + c) AND b < (a + c) AND c < (a + b) AND sqrt(c) < (sqrt(a) + sqrt(b)) ORDER BY a SELECT * FROM utb

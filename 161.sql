@@ -1,0 +1,1 @@
+--SELECT * from ships  where name not in(SELECT ship from outcomes)
